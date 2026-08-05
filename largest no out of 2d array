@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int grid[2][2]={{5,10},{15,20}};
+    //first assume the first number means 5 is max
+    int max_num=grid[0][0];
+    
+    //go through every number by loop 
+    for (int i=0;i<2;i++){
+        for (int j=0;j<2;j++){
+            
+        //if next no is max then update it like 10 greater than 5
+            if (grid[i][j]>max_num){
+                max_num=grid[i][j];
+            }
+        }
+    }
+        cout<<"Largest number: "<< max_num <<endl;
+    return 0;
+}
