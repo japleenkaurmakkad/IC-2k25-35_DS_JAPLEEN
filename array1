@@ -1,11 +1,15 @@
+// Online C++ compiler to run C++ program online
 #include <iostream>
 using namespace std;
+
 int main() {
-    int ar[5] = {45, 56, 78, 89, 90};
-    cout<<"[";
-    for(int i=0;i<5;i++){
-        cout<<ar[i]<<",";
-    }
-    cout<<"]";
+  int ar[5] = {45, 56, 78, 89, 90};
+  cout<<"[";    
+  for(int i=0;i<5;i++){        
+      cout<<ar[i];
+      if (i<4) cout<<",";
+  }
+  cout <<"]";
+
     return 0;
 }
