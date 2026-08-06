@@ -9,12 +9,13 @@ int main() {
     for(int j=0;j<3;j++)
     cin>>a[i][j];
     
-    cout<<"\nRow Column Value\n";
+    cout<<"Row\tColumn\tValue";
     for(int i=0;i<3;i++){
         for (int j=0;j<3;j++){
-            if (a[i][j]!=0)
-            cout<<i<<"\t"<<j<<"\t"<<a[i][j]<<endl;
+            if (a[i][j]!=0){
+            cout<<i<<"\t"<<j<<"\t\t"<<a[i][j]<<endl;
         }
     }
+}
     return 0;
 }
