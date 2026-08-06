@@ -9,7 +9,7 @@ int main() {
     for(int j=0;j<3;j++)
     cin>>a[i][j];
     
-    cout<<"Row\tColumn\tValue";
+    cout<<"Row\tColumn\tValue"<<endl;
     for(int i=0;i<3;i++){
         for (int j=0;j<3;j++){
             if (a[i][j]!=0){
