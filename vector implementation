@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Create a vector and add elements
+    vector<int> nums = {10, 20, 30};
+    nums.push_back(40);
+
+    // Print elements
+    cout << "Elements: ";
+    for (int n : nums) {
+        cout << n << " ";
+    }
+    
+    cout << "\nSize: " << nums.size() << endl;
+    return 0;
+}
