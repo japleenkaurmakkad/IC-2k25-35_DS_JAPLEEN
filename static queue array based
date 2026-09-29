@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+#define MAX 5
+
+class StaticQueue {
+    int arr[MAX];
+    int front, rear;
+public:
+    StaticQueue() { front = -1; rear = -1; }
+
+    void push(int x) {
+        if (rear == MAX - 1) { 
+            cout << "Queue Overflow!\n"; 
+            return;
+        }
+        if (front == -1) front = 0;
+        arr[++rear] = x;// increase the rear by one first and then add the value 
+    }
+
+    void pop() {
+        if (front == -1 || front > rear) { 
+            cout << "Queue Underflow!\n"; 
+            return; 
+        }
+        front++;//underflow means empty so increase front by one 
+    }
+
+    void display() {
+        if (front == -1 || front > rear) { 
+            cout << "Queue is empty!\n"; 
+            return; 
+        }
+        for (int i = front; i <= rear; i++) cout << arr[i] << " ";
+        cout << "\n";// loop runs till front is less or equal to rear and i++ so it shifts to next element in array 
+    }
+};
+
+int main() {
+    StaticQueue q;
+    q.push(10); 
+    q.push(20); 
+    q.push(30);
+    
+    cout << "Static Queue: ";
+    q.display();
+    
+    q.pop();// 10 will pop out because first in first out
+    cout << "After Pop: ";
+    q.display();
+    
+    return 0;
+}
