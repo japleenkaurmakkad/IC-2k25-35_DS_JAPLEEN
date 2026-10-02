@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    // Function to find the celebrity index, vector<vector<int>> creates a 2D matrix with 0 and 1 as int numbers
+    int findCelebrity(vector<vector<int>>& M, int n) {
+        int a = 0;
+        int b = n - 1;
+
+        // Step 1: Elimination loop to find a candidate
+        while (a < b) {
+            if (M[a][b] == 1) {
+                // 'a' knows 'b', so 'a' is NOT a celebrity
+                a++;
+            } else {
+                // 'a' does not know 'b', so 'b' is NOT a celebrity
+                b--;
+            }
+        }
+
+        // 'a' (or 'b') is our final candidate
+        int candidate = a;
+
+        // Step 2: Verify the candidate
+        for (int i = 0; i < n; i++) {
+            if (i == candidate) continue; // Skip checking against themselves
+
+            // A celebrity must know NO ONE (M[candidate][i] == 0)
+            // AND everyone must know the celebrity (M[i][candidate] == 1)
+            if (M[candidate][i] == 1 || M[i][candidate] == 0) {
+                return -1; // Not a true celebrity
+            }
+        }
+
+        return candidate;
+    }
+};
+
+int main() {
+    // Example 3x3 Matrix:
+    // Person 0 knows Person 1 and Person 2 -> {0, 1, 1}
+    // Person 1 knows NO ONE (Celebrity!) -> {0, 0, 0}
+    // Person 2 knows Person 1 -> {0, 1, 0}
+    vector<vector<int>> matrix = {
+        {0, 1, 1},
+        {0, 0, 0},
+        {0, 1, 0}
+    };
+
+    Solution sol; //object of class
+    int n = matrix.size(); //size of matrix i.e. 3
+    int celebrityIndex = sol.findCelebrity(matrix, n);
+
+    if (celebrityIndex != -1) {
+        cout << "Celebrity found at index: " << celebrityIndex << endl;
+    } else {
+        cout << "No celebrity found at the party.\n";
+    }
+
+    return 0;
+}
